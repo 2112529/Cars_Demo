@@ -5,6 +5,6 @@
 <mapper namespace="com.nd.car.web.dao.SafetyDao">
     <!--    在这里写数据库查询语句，id即为接口方法的名字-->
     <select id="findAllSafety" resultType="com.nd.car.web.entity.Safety">
-        SELECT * FROM safety_count
+        SELECT * FROM safety_count order by count desc limit 8
     </select>
 </mapper>

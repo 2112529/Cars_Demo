@@ -5,6 +5,6 @@
 <mapper namespace="com.nd.car.web.dao.BrandDao">
     <!--    在这里写数据库查询语句，id即为接口方法的名字-->
     <select id="findAllBrand" resultType="com.nd.car.web.entity.Brand">
-        SELECT * FROM `brand_count`
+        SELECT * FROM brand_count WHERE count>3200
     </select>
 </mapper>

@@ -5,6 +5,6 @@
 <mapper namespace="com.nd.car.web.dao.ColorGroupDao">
     <!--    在这里写数据库查询语句，id即为接口方法的名字-->
     <select id="findAllGroup" resultType="com.nd.car.web.entity.ColorGroup">
-        SELECT * FROM  color_group
+        SELECT * FROM  color_group order by count desc limit 8
     </select>
 </mapper>
