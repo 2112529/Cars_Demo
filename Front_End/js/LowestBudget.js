@@ -1,8 +1,8 @@
 $(document).ready(function() {
     // 设置可以选择的数字
     var numbers = [];
-    for (var i = 1; i <= 10; i++) {
-        numbers.push(i);
+    for (var i = 0; i <= 10; i++) {
+        numbers.push(i*5000);
     }
 
     // 填充下拉框
