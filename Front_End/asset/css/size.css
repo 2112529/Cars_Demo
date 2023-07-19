@@ -1,0 +1,12 @@
+#fuelTypeShow,
+#brandShow,
+#drivetrainShow,
+#colorGroupShow,
+#statusShow,
+#statusShow2,
+#exteriorShow,
+#interiorShow,
+#safetyShow {
+    width: 580px;
+    height: 500px;
+}
