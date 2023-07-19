@@ -25,7 +25,7 @@ $(function() {
             series: [
                 {
                     realtimeSort: true,
-                    name: '没想好',
+                    name: '汽车数量',
                     type: 'bar',
                     data: data,
                     label: {

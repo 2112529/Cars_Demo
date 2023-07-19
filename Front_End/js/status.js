@@ -15,7 +15,7 @@ $(function(){
         //设置配置项
         option = {
             title: {
-                text: '没想好'
+                text: '汽车数量'
             },
             tooltip: {
                 trigger: 'axis'
