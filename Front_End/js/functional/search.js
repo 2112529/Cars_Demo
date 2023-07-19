@@ -6,7 +6,7 @@ $(function (){
         event.preventDefault(); // 阻止表单默认提交行为
         var lowerBound = low.value;
         var upperBound = high.value;
-        if(upperBound<=1000){
+        if(upperBound<=10000){
             location.href="response1.html";
         }else if(upperBound<=20000){
             location.href="response2.html";
