@@ -54,6 +54,7 @@ $(function() {
                 myChart.setOption(option);
             }
         }
+        update();
         setInterval(function () {
             update();
         }, 3000);
