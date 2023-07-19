@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title>购买建议</title>
+    <link rel="stylesheet" href="css/response.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/construct.js"></script>
+    <script src="js/vanilla.js"></script>
+    <script src="js/jquery.js"></script>
+    <style>
+        * {
+            font-family: 'icomoon';
+        }
+    </style>
+</head>
+
+<body>
+<script>
+    function isNumericInput(input) {
+        return /^\d+$/.test(input);
+    }
+    var brandInfo=[];
+    var currindex=4;
+    $.get("http://localhost:8080/brand/listPopularBrand", {}, function (res) {
+        for(var i=0;i<res.length;i++){
+            brandInfo.push(new PopularBrandInfo(res[i].min,res[i].max,res[i].brand,
+                res[i].drivetrain,res[i].mPG,res[i].fuelType,res[i].cengine,res[i].convenience,
+                res[i].entertainment,res[i].model));
+        }
+        console.log(brandInfo);
+        var p1 = document.querySelector("#data1");
+        p1.innerHTML="价值区间: "+brandInfo[currindex].lowerBound+" ~ "+"30000"+" $";
+        var p2 = document.querySelector("#data2")
+        var str="";
+        // for(var i =0;i<brandInfo[currindex].convenience.length;i++){
+            str += brandInfo[currindex].convenience[0] + "<br>";
+        // }
+        p2.innerHTML=str;
+        var p3=document.querySelector("#data3");
+        var str2="";
+        for(var i =0;i<brandInfo[currindex].entertainment.length;i++){
+            str2 += brandInfo[currindex].entertainment[i] + "<br>";
+        }
+        p3.innerHTML=str2;
+        var p4=document.querySelector("#data4");
+        str="";
+        for(var i=0;i<brandInfo[currindex].engineNames.length;i++){
+            str+=brandInfo[currindex].engineNames[i]+"<br>";
+        }
+        str+="<br>";
+        for(var i=0;i<brandInfo[currindex].drivetrains.length;i++){
+            str+=brandInfo[currindex].drivetrains[i];
+            if(i<brandInfo[currindex].drivetrains.length-1){
+                str+=" & ";
+            }
+        }
+        p4.innerHTML=str;
+        str="";
+        var p5=document.querySelector("#data5");
+        for(var i =0;i<brandInfo[currindex].fuelTypes.length;i++){
+            str+=brandInfo[currindex].fuelTypes[i]+"<br>";
+        }
+        p5.innerHTML=str;
+    }, "json");
+</script>
+<div class="container">
+    <div class="card">
+        <div class="content">
+            <h2>01</h2>
+            <h3>Honda </h3>
+            <p id="data1">Realistic glass card hover effect, realistic glass card hover effect, realistic glass card hover
+                effect.</p>
+            <img src="img/honda.webp" style="height: 170px">
+            <a href="#">Read More</a>
+        </div>
+    </div>
+    <div class="card">
+        <div class="content">
+            <h2>02</h2>
+            <h3>便利性</h3>
+            <p id="data2">Realistic glass card hover effect, realistic glass card hover effect, realistic glass card hover
+                effect.</p>
+            <h3>娱乐性</h3>
+            <p id="data3"></p>
+            <a href="#">Read More</a>
+        </div>
+    </div>
+    <div class="card">
+        <div class="content">
+            <h2>03</h2>
+            <h3>引擎与发动机</h3>
+            <p id="data4">Realistic glass card hover effect, realistic glass card hover effect, realistic glass card hover
+                effect, realistic glass card hover effect.</p>
+            <h3>汽油类型</h3>
+            <p id="data5"></p>
+            <a href="#">Read More</a>
+        </div>
+    </div>
+</div>
+<script src="vanilla.js"></script>
+<script>
+    // vanilla-tilt.js是一个平滑的3D倾斜JS库，具体参数配置度娘可查到
+    VanillaTilt.init(document.querySelectorAll(".card"), {
+        max: 15,  //最大倾斜度数
+        speed: 400,  //倾斜转换的速度
+        glare: true,  //是否开启眩光效果
+        "max-glare": 1  //最大眩光的不透明度
+    })
+</script>
+</body>
+
+</html>
